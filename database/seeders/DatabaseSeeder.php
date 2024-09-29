@@ -13,11 +13,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $users = User::factory(20)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        foreach ($users as $user) {
+            if ($user->id === 1) {
+                $user->award = 'Salesman of the Year';
+            } else if ($user->id === 11) {
+                $user->award = 'Employee of the Month';
+            } else {
+                continue;
+            }
+
+            $user->save();
+        }
+
+
+//        User::factory()->create([
+//            'name' => 'Test User',
+//            'email' => 'test@example.com',
+//        ]);
     }
 }
