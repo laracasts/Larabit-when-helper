@@ -14,7 +14,7 @@
             <h3 class="text-4xl text-white">Employees</h3>
             <ul>
                 @foreach ($users as $user)
-                    <li class="my-3">
+                    <li class="my-3 {{ when($user->award, 'text-yellow-500') }}">
                         <a href="{{$user->id}}">{{$user->name}}</a>
                     </li>
                 @endforeach

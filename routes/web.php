@@ -11,5 +11,15 @@ Route::get('/', function () {
 });
 
 Route::get('/{user}', function(User $user) {
-    return view('show', compact('user'));
+
+//    $title = '';
+//
+//    if ($user->award) {
+//        $title = 'Award Winner';
+//    }
+
+    $title = when($user->award, 'Award Winner');
+
+
+    return view('show', compact('user', 'title'));
 });

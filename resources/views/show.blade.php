@@ -12,7 +12,9 @@
     <div class="flex w-full flex-col items-center">
         <div class="w-1/2 p-5 text-slate-200">
             <h3 class="text-3xl text-white">{{$user->name}}</h3>
-
+            @if($title)
+                <div class="italic">{{$title}}: {{$user->award}}</div>
+            @endif
             <div class="my-5">
                 The employee bio would go here. But there isn't one.
             </div>
